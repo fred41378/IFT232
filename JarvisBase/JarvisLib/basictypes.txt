@@ -9,15 +9,10 @@
 #MUTATEUR: c'est une fonctionnalité 
 #de base de tous les objets...
 
-
-
-
-
-
 #Classe servant à faire des conditions
 ("true" "false")
-[]
 
+[]
 !(Class new)
 !ref ifelse
 
@@ -35,5 +30,10 @@
 !(Class new)
 !ref bool
 
-
+!(int new 1)
+!ref valeur_petite
+!(int new 26)
+!ref valeur_grande
+!(valeur_petite - valeur_grande)
+!ref valeur_negative
 

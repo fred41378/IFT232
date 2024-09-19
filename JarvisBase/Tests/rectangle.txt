@@ -2,9 +2,29 @@
 !load JarvisLib/util.txt
 !mute
 
+!{.
+    !(a - b)
+}
+!ref aPlusGrand
 
+!{.
+    !(b - a)
+}
+!ref aPlusPetit
 
+!(ifelse new aPlusGrand aPlusPetit)
+!ref verifGrandeur
 
+!{ a b .
+	!(a > b)
+	!ref resultatCalcul
+
+	!(resultatCalcul value)
+	!ref valeurResultat
+
+	!(verifGrandeur valeurResultat)
+}
+!ref valeurAbsolue
 
 #Fonction de création de la classe Rectangle
 !{.
@@ -15,7 +35,11 @@
 		!(self y1)
 		!ref y1
 		!(self y2)
-		!(!a - y1)
+		!ref y2
+		y1
+		y2
+		valeurAbsolue
+
 	}
 	!ref fonctionHauteur
 		
@@ -26,7 +50,10 @@
 		!(self x1)
 		!ref x1
 		!(self x2)
-		!(!a - x1)
+		!ref x2
+        x1
+        x2
+        valeurAbsolue
 	}
 	!ref fonctionLargeur	
 	
