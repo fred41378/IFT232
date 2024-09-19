@@ -76,15 +76,15 @@ public class DictionnaryAtom extends AbstractAtom {
 		DictionnaryAtom dict = new DictionnaryAtom();
 		
 		CommandAtom.setDontPut(true);
-		//Attention aux dictionnaires mal formés! 
-		//Vérifie seulement si la clé est la fin.
+		//Attention aux dictionnaires mal formï¿½s! 
+		//Vï¿½rifie seulement si la clï¿½ est la fin.
 		CommandAtom key = ji.readCommandFromInput();
 		
 		while (!key.isEndOfDictionnary())
 		{	
 			CommandAtom value = ji.readCommandFromInput();
 			
-			//La clé peut être fournie par n'importe quel atome.
+			//La clï¿½ peut ï¿½tre fournie par n'importe quel atome.
 			
 			AbstractAtom keyAtom = key.interpretNoPut(ji);
 			
@@ -116,6 +116,10 @@ public class DictionnaryAtom extends AbstractAtom {
 		}
 		
 		return null;
+	}
+	
+	public String toString() {
+		return ""+data;
 	}
 
 }

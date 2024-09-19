@@ -28,5 +28,9 @@ public class IntAtom extends AbstractAtom {
 		
 		return ""+value;
 	}
+	
+	public String toString() {
+		return ""+value;
+	} 
 
 }

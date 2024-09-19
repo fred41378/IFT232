@@ -21,5 +21,8 @@ public class BoolAtom extends AbstractAtom{
 		
 		return ""+value;
 	}
-
+	
+	public String toString() {
+		return ""+value;
+	}
 }

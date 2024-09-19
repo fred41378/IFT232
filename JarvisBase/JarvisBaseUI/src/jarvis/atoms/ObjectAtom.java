@@ -6,18 +6,18 @@ import java.util.ArrayList;
 
 /*
  * Cette classe implante l'objet de base.
- * L'interpréteur comprend un objet comme
+ * L'interprï¿½teur comprend un objet comme
  * une simple liste de valeurs.
- * L'organisation de ses données est spécifiée
- * par la classe. Celle-ci peut être retrouvée
+ * L'organisation de ses donnï¿½es est spï¿½cifiï¿½e
+ * par la classe. Celle-ci peut ï¿½tre retrouvï¿½e
  * via le lien classReference.
  */
 public class ObjectAtom extends AbstractAtom {
 
 	/*
-	 * Si vous ajoutez des champs à JarvisClass
-	 * ces constantes doivent le refléter.
-	 * Elles sont utilisées pour retrouver
+	 * Si vous ajoutez des champs ï¿½ JarvisClass
+	 * ces constantes doivent le reflï¿½ter.
+	 * Elles sont utilisï¿½es pour retrouver
 	 * les membres d'une classe.
 	 * 
 	 */
@@ -25,18 +25,18 @@ public class ObjectAtom extends AbstractAtom {
 	public static final int METHOD_FIELD =1;
 	
 	/*
-	 * Référence à la classe de cet objet.
+	 * Rï¿½fï¿½rence ï¿½ la classe de cet objet.
 	 */
 	private ObjectAtom classReference;
 	private ArrayList<AbstractAtom> values;
 	
-	//Référence utile pour faire des reverse lookup
+	//Rï¿½fï¿½rence utile pour faire des reverse lookup
 	private JarvisInterpreter ji;
 
 	
 
-	// Constructeur d'objet générique
-	// Utilisé comme raccourci par les fonctions tricheuses.
+	// Constructeur d'objet gï¿½nï¿½rique
+	// Utilisï¿½ comme raccourci par les fonctions tricheuses.
 	public ObjectAtom(ObjectAtom theClass, ArrayList<AbstractAtom> vals,JarvisInterpreter ji) {
 
 		classReference = theClass;
@@ -57,21 +57,21 @@ public class ObjectAtom extends AbstractAtom {
 	}
 	
 	
-	//Cas spécial où le selecteur n'est pas encore encapsulé dans un atome
-	//Supporté pour alléger la syntaxe.
+	//Cas spï¿½cial oï¿½ le selecteur n'est pas encore encapsulï¿½ dans un atome
+	//Supportï¿½ pour allï¿½ger la syntaxe.
 	public AbstractAtom message(String selector) {
 		
 		return message(new StringAtom(selector));
 		
 	}
 	
-    //HÉRITAGE
+    //Hï¿½RITAGE
 	//VARIABLESCLASSE
 	/*
 	 * Algorithme de gestion des messages.
-	 * Ce bout de code a pour responsabilité de déterminer si le message
-	 * concerne un attribut ou une méthode. 
-	 * Pour implanter l'héritage, cet algorithme doit nécessairement être modifié.
+	 * Ce bout de code a pour responsabilitï¿½ de dï¿½terminer si le message
+	 * concerne un attribut ou une mï¿½thode. 
+	 * Pour implanter l'hï¿½ritage, cet algorithme doit nï¿½cessairement ï¿½tre modifiï¿½.
 	 */	
 	public AbstractAtom message(AbstractAtom selector) {
 		
@@ -79,13 +79,13 @@ public class ObjectAtom extends AbstractAtom {
 		//Va chercher les attributs
 		ListAtom members = (ListAtom) classReference.values.get(ATTRIBUTE_FIELD);
 
-		//Vérifie si c'est un attribut 
+		//Vï¿½rifie si c'est un attribut 
 		int pos = members.find(selector);
 		
 		
 		if (pos == -1) {
 			// pas un attribut...
-			// Va chercher les méthodes
+			// Va chercher les mï¿½thodes
 			DictionnaryAtom methods = (DictionnaryAtom) classReference.values
 					.get(METHOD_FIELD);
 
@@ -97,7 +97,7 @@ public class ObjectAtom extends AbstractAtom {
 				// Rien ne correspond au message
 				return new StringAtom("ComprendPas "+ selector);
 			} else {
-				//C'est une méthode.
+				//C'est une mï¿½thode.
 				return res;
 			}
 
@@ -145,6 +145,10 @@ public class ObjectAtom extends AbstractAtom {
 		
 		return ji.getEnvironment().reverseLookup(classReference);
 		
+	}
+	
+	public String toString() {
+		return ""+values;
 	}
 
 }
