@@ -31,4 +31,8 @@ public class StringAtom extends AbstractAtom {
 		return value;
 	}
 
+	public String toString(){
+		return "\"" + value + "\"";
+	}
+
 }

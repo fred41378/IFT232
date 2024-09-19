@@ -118,4 +118,8 @@ public class DictionnaryAtom extends AbstractAtom {
 		return null;
 	}
 
+	public String toString(){
+		return ""+data;
+	}
+
 }

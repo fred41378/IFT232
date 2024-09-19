@@ -16,9 +16,18 @@ public class BoolAtom extends AbstractAtom{
 		return this;
 	}
 
+	public boolean getValue()
+	{
+		return value;
+	}
+
 	@Override
 	public String makeKey() {
 		
+		return ""+value;
+	}
+
+	public String toString(){
 		return ""+value;
 	}
 

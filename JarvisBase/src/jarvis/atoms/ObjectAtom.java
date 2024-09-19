@@ -147,4 +147,8 @@ public class ObjectAtom extends AbstractAtom {
 		
 	}
 
+	public String toString(){
+		return ""+values;
+	}
+
 }

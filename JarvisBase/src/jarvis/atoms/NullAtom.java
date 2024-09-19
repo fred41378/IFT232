@@ -16,4 +16,8 @@ public class NullAtom extends AbstractAtom{
 		return "null";
 	}
 
+	public String toString(){
+		return "null";
+	}
+
 }

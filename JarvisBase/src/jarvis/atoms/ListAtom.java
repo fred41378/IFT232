@@ -103,7 +103,9 @@ public class ListAtom extends AbstractAtom{
 	{
 		data.add(atom);
 	}
-	
-	
+
+	public String toString(){
+		return ""+data;
+	}
 
 }

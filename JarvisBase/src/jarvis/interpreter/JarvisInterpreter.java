@@ -20,10 +20,10 @@ import jarvis.atoms.ObjectAtom;
 import jarvis.atoms.StringAtom;
 import jarvis.atoms.primitives.OperatorNewPrimitive;
 
-import jarvis.atoms.primitives.integers.IntegerPrimitiveAdd;
-import jarvis.atoms.primitives.integers.IntegerPrimitiveEquals;
-import jarvis.atoms.primitives.integers.IntegerPrimitiveMultiply;
-import jarvis.atoms.primitives.integers.IntegerPrimitiveSubtract;
+import jarvis.atoms.primitives.bool.BoolPrimitiveAnd;
+import jarvis.atoms.primitives.bool.BoolPrimitiveNot;
+import jarvis.atoms.primitives.bool.BoolPrimitiveOr;
+import jarvis.atoms.primitives.integers.*;
 import jarvis.exceptions.UndefinedSymbolException;
 import jarvis.ui.MainWindow;
 
@@ -130,6 +130,11 @@ public class JarvisInterpreter {
 	 */
 	private void addCheaterCode() {
 
+		environment.put("_integerLessPrimitive", new IntegerPrimitiveLess());
+		environment.put("_boolNotPrimitive", new BoolPrimitiveNot());
+		environment.put("_boolAndPrimitive", new BoolPrimitiveAnd());
+		environment.put("_boolOrPrimitive", new BoolPrimitiveOr());
+		environment.put("_integerMorePrimitive", new IntegerPrimitiveMore());
 		environment.put("_integerAddPrimitive", new IntegerPrimitiveAdd());
 		environment.put("_integerSubtractPrimitive", new IntegerPrimitiveSubtract());
 		environment.put("_integerMultiplyPrimitive", new IntegerPrimitiveMultiply());

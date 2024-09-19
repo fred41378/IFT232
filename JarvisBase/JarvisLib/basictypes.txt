@@ -24,14 +24,14 @@
 #OPERATIONSPRIMITIVES
 #définition incomplète del a classe int.
 ("value")
-["+" _integerAddPrimitive "-" _integerSubtractPrimitive "*" _integerMultiplyPrimitive "==" _integerEqualsPrimitive]
+["+" _integerAddPrimitive "-" _integerSubtractPrimitive "*" _integerMultiplyPrimitive "<" _integerLessPrimitive ">" _integerMorePrimitive "==" _integerEqualsPrimitive]
 !(Class new)
 !ref int
 
 #OPERATIONSPRIMITIVES
 #définition incomplète de la classe bool.
 ("value")
-[]
+["!" _boolNotPrimitive "&&" _boolAndPrimitive "||" _boolOrPrimitive]
 !(Class new)
 !ref bool
 
