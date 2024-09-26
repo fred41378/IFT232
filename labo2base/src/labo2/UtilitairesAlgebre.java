@@ -36,6 +36,7 @@ public class UtilitairesAlgebre {
 			};
 
 		Matrice mat = new Matrice(systeme1);
+		System.out.println(mat);
 		mat.Gauss();
 		System.out.println("Test de matrice:");
 		System.out.println(mat);

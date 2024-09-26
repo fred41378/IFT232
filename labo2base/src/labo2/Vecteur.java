@@ -40,5 +40,35 @@ public class Vecteur {
 		valeurs[pos]=val;
 	}
 
+	public static boolean egaliteDoublePrecision(double a, double b, double epsilon){
+		return (Math.abs(a-b)<=epsilon);
+	}
+
+	public boolean equals(Object obj){
+		if(obj instanceof Vecteur){
+			Vecteur v = (Vecteur)obj;
+			if(valeurs.length!=v.valeurs.length){
+				return false;
+			}
+			for (int i = 0; i < valeurs.length; i++) {
+				if(!egaliteDoublePrecision(valeurs[i],v.valeurs[i],0.00001)){
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public Vecteur sousVecteur(int taille){
+		if(taille>valeurs.length || taille<0){
+			throw new IllegalArgumentException("Dimensions inadmissibles");
+		}
+		double[] nouvelleValeurs = new double[taille];
+		for(int i=0;i<taille;i++){
+			nouvelleValeurs[i] = valeurs[i];
+		}
+		return new Vecteur(nouvelleValeurs);
+	}
 	
 }

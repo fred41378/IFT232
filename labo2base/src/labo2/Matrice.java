@@ -58,6 +58,37 @@ public class Matrice {
 		return res;
 	}
 
-	
+	public boolean equals(Object obj){
+		if(obj instanceof Matrice){
+			Matrice matrice = (Matrice) obj;
+			if(lignes.length != matrice.lignes.length){
+				return false;
+			}
+			for (int i = 0; i < lignes.length; i++) {
+				if(!lignes[i].equals(matrice.lignes[i])){
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
 
+	public Matrice sousMatrice(int pLignes, int pColonnes){
+		if(pLignes < 0 || pColonnes < 0 || pColonnes > lignes.length){
+			throw new IllegalArgumentException("Dimensions inadmissibles");
+		}
+		for (int i = 0; i < lignes.length; i++) {
+			if(pLignes > lignes[i].taille()){
+				throw new IllegalArgumentException("Dimensions inadmissibles");
+			}
+		}
+		double[][] nouvellesLignes = new double[pColonnes][];
+		for (int i = 0; i < pLignes; i++) {
+			for (int j = 0; j < pColonnes; j++) {
+				nouvellesLignes[i][j] = lignes[i].getValeur(j);
+			}
+		}
+		return new Matrice(nouvellesLignes);
+	}
 }
