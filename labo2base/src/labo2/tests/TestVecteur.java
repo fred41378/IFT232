@@ -50,7 +50,7 @@ public class TestVecteur {
 		
 		Vecteur resAttendu = new Vecteur(s2);	
 		
-		assertEquals(l1,resAttendu);		
+		assertEquals(resAttendu,l1);
 		
 	}
 	
