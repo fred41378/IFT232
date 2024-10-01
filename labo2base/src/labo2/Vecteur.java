@@ -18,6 +18,9 @@ public class Vecteur {
 			this.valeurs[i]=valeurs[i];			
 		}		
 	}
+	public Vecteur(){
+
+	}
 	
 	public String toString(){
 		

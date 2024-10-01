@@ -27,9 +27,10 @@ public class UtilitairesAlgebre {
 		Vecteur l1 = new Vecteur(s1l1);
 		System.out.println("Test de vecteur:");
 		System.out.println(l1);
+		System.out.println("Test de vecteur nul");
+		System.out.println(Vecteur.creerVecteurNul(3));
 		
 		double[][] systeme1 = {
-
 				{ 3, 5, -3, 15 },
 				{ 7, 10, 1, 2 },
 				{ -3, 2, -5, 6 }
@@ -40,6 +41,10 @@ public class UtilitairesAlgebre {
 		mat.Gauss();
 		System.out.println("Test de matrice:");
 		System.out.println(mat);
+		System.out.println("Test de matrice nulle");
+		System.out.println(Matrice.creerMatriceNul(3,4));
+		System.out.println("Test de matrice identitée");
+		System.out.println(Matrice.creerrMatriceIdentite(4));
 
 		/*
 		 * Ensemble de données déclarées pour effectuer des tests.

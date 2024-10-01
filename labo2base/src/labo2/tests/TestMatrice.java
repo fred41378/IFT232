@@ -14,7 +14,7 @@ public class TestMatrice {
             { 7, 10, 1, 2 },
             { -3, 2, -5, 6 }
     };
-    Matrice m1 = new Matrice(s1);
+    Matrice m1;
 
     @Before
     public void setUp(){
