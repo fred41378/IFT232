@@ -112,4 +112,20 @@ public class TestMatrice {
 
         assertEquals(m2, resAttendu);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreerMatriceIdentite(){
+        Matrice m2 = Matrice.creerrMatriceIdentite( 3);
+        double[][] s2 = {
+                { 1, 0, 0 },
+                { 0, 1, 0 },
+                { 0, 0, 1 }
+        };
+        Matrice resAttendu = new Matrice(s2);
+
+        Matrice err1 = m1.creerrMatriceIdentite(0);
+        Matrice err2 = m1.creerrMatriceIdentite(-1);
+
+        assertEquals(m2, resAttendu);
+    }
 }

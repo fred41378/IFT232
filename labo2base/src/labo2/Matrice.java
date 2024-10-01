@@ -104,4 +104,24 @@ public class Matrice {
 		}
 		return new Matrice(nouvelleMatrice);
 	}
+
+	public static Matrice creerrMatriceIdentite(int taille){
+		if(taille < 0){
+			throw new IllegalArgumentException("Dimensions inadmissibles");
+		}
+		double[][] nouvelleMatrice = new double[taille][taille];
+		int positionUn = 0;
+		for (int i = 0; i < taille; i++) {
+			for (int j = 0; j < taille; j++) {
+				if(i == positionUn && j == positionUn){
+					nouvelleMatrice[positionUn][i] = 1;
+					positionUn++;
+				}
+				else {
+					nouvelleMatrice[i][j] = 0;
+				}
+			}
+		}
+		return new Matrice(nouvelleMatrice);
+	}
 }
