@@ -32,9 +32,7 @@ public class TestVecteur {
 		String resAttendu = "[1.0 2.0 3.0 14.0]";
 		
 		assertTrue(l1.toString().equals(resAttendu));
-		
-		
-		
+
 	}
 	//Exercice 2
 	//Devrait fonctionner une fois votre equals implanté. 
@@ -63,14 +61,29 @@ public class TestVecteur {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testSousVecteur(){
-		Vecteur l1 = new Vecteur(s1);
 		Vecteur l2 = l1.sousVecteur(2);
 		double[] s2 = { 1, 2 };
 		Vecteur resAttendu = new Vecteur(s2);
 
-		Vecteur l3 = l1.sousVecteur(8);
-		Vecteur l4 = l1.sousVecteur(-1);
+		Vecteur err1 = l1.sousVecteur(8);
+		Vecteur err2 = l1.sousVecteur(-1);
 
 		assertEquals(l2, resAttendu);
+		assertNotEquals(l2, l1);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testCreerVecteurNul(){
+		Vecteur l2 = Vecteur.creerVecteurNul(3);
+		double[] s2 = { 0, 0, 0 };
+		double[] s3 = { 0, 0, 0, 0 };
+		Vecteur resAttendu = new Vecteur(s2);
+		Vecteur err1 = new Vecteur(s3);
+
+		Vecteur err2 = l2.sousVecteur(-1);
+		Vecteur err3 = l2.sousVecteur(0);
+
+		assertEquals(l2, resAttendu);
+		assertNotEquals(l2, err1);
 	}
 }

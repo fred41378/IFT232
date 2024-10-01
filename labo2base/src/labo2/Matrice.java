@@ -79,16 +79,29 @@ public class Matrice {
 			throw new IllegalArgumentException("Dimensions inadmissibles");
 		}
 		for (int i = 0; i < lignes.length; i++) {
-			if(pLignes > lignes[i].taille()){
+			if(pColonnes > lignes[i].taille()){
 				throw new IllegalArgumentException("Dimensions inadmissibles");
 			}
 		}
-		double[][] nouvellesLignes = new double[pColonnes][];
+		double[][] nouvelleMatrice = new double[pLignes][pColonnes];
 		for (int i = 0; i < pLignes; i++) {
 			for (int j = 0; j < pColonnes; j++) {
-				nouvellesLignes[i][j] = lignes[i].getValeur(j);
+				nouvelleMatrice[i][j] = lignes[i].getValeur(j);
 			}
 		}
-		return new Matrice(nouvellesLignes);
+		return new Matrice(nouvelleMatrice);
+	}
+
+	public static Matrice creerMatriceNul(int pLignes, int pColonnes){
+		if(pLignes < 0 || pColonnes < 0 ){
+			throw new IllegalArgumentException("Dimensions inadmissibles");
+		}
+		double[][] nouvelleMatrice = new double[pLignes][pColonnes];
+		for (int i = 0; i < pLignes; i++) {
+			for (int j = 0; j < pColonnes; j++) {
+				nouvelleMatrice[i][j] = 0;
+			}
+		}
+		return new Matrice(nouvelleMatrice);
 	}
 }

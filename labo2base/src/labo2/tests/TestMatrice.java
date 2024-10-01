@@ -79,6 +79,37 @@ public class TestMatrice {
 
     @Test(expected = IllegalArgumentException.class)
     public void testSousMatrice(){
+        Matrice m1 = new Matrice(s1);
+        Matrice m2 = m1.sousMatrice(2, 3);
+        double[][] s2 = {
+                { 3, 5, -3 },
+                { 7, 10, 1 }
+        };
+        Matrice resAttendu = new Matrice(s2);
 
+        Matrice err1 = m1.sousMatrice(-1, 3);
+        Matrice err2 = m1.sousMatrice(2, -1);
+        Matrice err3 = m1.sousMatrice(4, 3);
+        Matrice err4 = m1.sousMatrice(2, 5);
+
+        assertEquals(m2, resAttendu);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreerMatriceNul(){
+        Matrice m2 = Matrice.creerMatriceNul(3, 4);
+        double[][] s2 = {
+                { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 }
+        };
+        Matrice resAttendu = new Matrice(s2);
+
+        Matrice err1 = m1.sousMatrice(0, 3);
+        Matrice err2 = m1.sousMatrice(2, 0);
+        Matrice err3 = m1.sousMatrice(-1, 3);
+        Matrice err4 = m1.sousMatrice(2, -1);
+
+        assertEquals(m2, resAttendu);
     }
 }

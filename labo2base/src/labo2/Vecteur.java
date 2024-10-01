@@ -70,5 +70,13 @@ public class Vecteur {
 		}
 		return new Vecteur(nouvelleValeurs);
 	}
+
+	public static Vecteur creerVecteurNul(int taille){
+		if(taille<0){
+			throw new IllegalArgumentException("Dimensions inadmissibles");
+		}
+		double[] nouvelleMatrice = new double[taille];
+		return new Vecteur(nouvelleMatrice);
+	}
 	
 }
