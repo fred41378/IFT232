@@ -1,13 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
-  }
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10abce50-a571-4579-b7de-5e80a6092d32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labo3base/videoStore/tests/RentalTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/videoStore/tests/RentalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labo3base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Labo3base.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labo3base/videoStore/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labo3base/videoStore/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labo3base/videoStore/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labo3base/videoStore/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labo3base/videoStore/Rental.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labo3base/videoStore/Rental.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labo3base/videoStore/StoreTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labo3base/videoStore/StoreTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labo3base/videoStore/tests/CustomerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labo3base/videoStore/tests/CustomerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/videoStore/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videoStore/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/videoStore/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videoStore/Rental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/videoStore/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videoStore/StoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/videoStore/tests/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videoStore/tests/CustomerTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="RunManager">
+  <component name="ProjectId" id="2mvnU4M1o4eVpgaMfT2OfoqrPWr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StoreTest.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.CustomerTest.executor": "Run",
+    "JUnit.CustomerTest.testGetTotalAmount.executor": "Run",
+    "JUnit.CustomerTest.testWholeStatement.executor": "Run",
+    "JUnit.RentalTest.testCalculateAmount.executor": "Run",
+    "JUnit.RentalTest.testCalculateFrequentRenterPoints.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/tayf2335/repo/IFT232/Labo3base",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="videoStore.Rental" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CustomerTest.testWholeStatement">
     <configuration name="StoreTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="videoStore.StoreTest" />
       <module name="Labo3base" />
@@ -21,10 +92,101 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labo3base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="videoStore.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="videoStore.tests" />
+      <option name="MAIN_CLASS_NAME" value="videoStore.tests.CustomerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTest.testGetTotalAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labo3base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="videoStore.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="videoStore.tests" />
+      <option name="MAIN_CLASS_NAME" value="videoStore.tests.CustomerTest" />
+      <option name="METHOD_NAME" value="testGetTotalAmount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTest.testWholeStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labo3base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="videoStore.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="videoStore.tests" />
+      <option name="MAIN_CLASS_NAME" value="videoStore.tests.CustomerTest" />
+      <option name="METHOD_NAME" value="testWholeStatement" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RentalTest.testGetFrequentRenterPoints" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labo3base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="videoStore.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="videoStore.tests" />
+      <option name="MAIN_CLASS_NAME" value="videoStore.tests.RentalTest" />
+      <option name="METHOD_NAME" value="testGetFrequentRenterPoints" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerTest.testWholeStatement" />
         <item itemvalue="Application.StoreTest" />
+        <item itemvalue="JUnit.CustomerTest" />
+        <item itemvalue="JUnit.CustomerTest.testGetTotalAmount" />
+        <item itemvalue="JUnit.RentalTest.testGetFrequentRenterPoints" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10abce50-a571-4579-b7de-5e80a6092d32" name="Changes" comment="" />
+      <created>1727965930115</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727965930115</updated>
+      <workItem from="1727965931093" duration="325000" />
+      <workItem from="1727966260829" duration="4739000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
