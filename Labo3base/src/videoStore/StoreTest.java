@@ -26,10 +26,7 @@ public class StoreTest {
 		grandmaman.addRentals(new Rental(movies[4],1));
 		
 		System.out.println(grandmaman.englishStatement());
-	
-		
-		
-		
+		System.out.println(grandmaman.frenchStatement());
 
 	}
 
