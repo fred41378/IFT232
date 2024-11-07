@@ -37,11 +37,11 @@ public class Rental {
 	}
 
 	public int points(){
-		return movie.points();
+		return movie.points(date);
 	}
 
 	public double amount(){
-		return movie.amount(daysRented);
+		return movie.amount(daysRented, date);
 	}
 
 }

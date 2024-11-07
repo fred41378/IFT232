@@ -20,19 +20,19 @@
 		"silence..."
 	}
 	!ref sonFonction
-	
+
 	!{.
 		"Miamscrunchscrunch"
 	}
 	!ref mangerFonction
-	
-	
+
+
 	("description")
-	
+
 	["__init__" constructeur "son" sonFonction "manger" mangerFonction]
-	
-	Object
-	
+
+	"Object"
+
 	!(Class new)
 }
 !a

@@ -6,6 +6,11 @@
  */
 package videoStore;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * M. Fowler, et al., Refactoring, Improving the design of existing code,
  * Addison-Wiley, 2000. Exemple Chapitre 1
@@ -20,27 +25,56 @@ public class Movie {
 	public static final Price UNPOPULAR_MOVIE = new UnpopularPrice();
 
 	private java.lang.String title_;
-	private Price priceCode_;
+	//private Price priceCode_;
+	private ArrayList<PriceDate> prices = new ArrayList<PriceDate>();
 
 	public Movie(String title, Price priceCode) {
 		title_ = title;
-		priceCode_ = priceCode;
+		prices.add(new PriceDate(priceCode, LocalDate.now()));
 	}
 
 	public java.lang.String getTitle() {
 		return title_;
 	}
 
-	public int getPriceCode() {
-		return priceCode_.getPriceCode();
+	public Price getPriceCode(LocalDate date) {
+		Collections.sort(prices);
+
+		PriceDate priceDate = null;
+
+		for(int i = 0; i < prices.size(); i++) {
+			if(prices.get(i).getDate().isBefore(date) || prices.get(i).getDate().isEqual(date)){
+				priceDate = prices.get(i);
+			}
+		}
+
+		if(priceDate != null){
+			return priceDate.getPrice();
+		}
+
+		return null;
 	}
-	public void setPriceCode(int priceCode) {
-		priceCode_.setPriceCode(priceCode);
+	public void setPriceCode(Price priceCode, LocalDate date) {
+		PriceDate newPriceDate = new PriceDate(priceCode, date);
+		prices.add(newPriceDate);
 	}
-	public double amount(int dayRented){
-		return priceCode_.amount(dayRented);
+	public double amount(int dayRented, LocalDate date){
+		Price price = getPriceCode(date);
+
+		if (price != null) {
+			return price.amount(dayRented);
+		}
+
+		return 0;
 	}
-	 public int points(){
-		return priceCode_.points();
-	 }
+	public int points(LocalDate date) {
+
+		Price price = getPriceCode(date);
+
+		if (price != null) {
+			return price.points();
+		}
+
+		return 0;
+	}
 }

@@ -19,19 +19,19 @@
 		"silence..."
 	}
 	!ref sonFonction
-	
+
 	!{.
 		"Miamscrunchscrunch"
 	}
 	!ref mangerFonction
-	
-	
+
+
 	("description")
-	
+
 	["son" sonFonction "manger" mangerFonction]
-	
-	
-	
+
+	"Class"
+
 	!(Class new)
 }
 !a
@@ -58,7 +58,7 @@
 	
 	["son" sonFonction "ageHumain" fonctionAgeHumain]
 	
-	
+	"Felin"
 	
 	!(Class new)
 }
@@ -72,7 +72,7 @@
 	
 	[]	
 	
-	
+	"Chat"
 	!(Class new)
 }
 !a
@@ -80,7 +80,7 @@
 
 
 #Tests avec Félin
-!(Felin new "Ceci-est-un-félin")
+!(Felin new "Ceci-est-un-félin" )
 !ref lefelin
 
 !(lefelin description)
@@ -95,7 +95,7 @@
 
 
 #Tests avec Chat
-!(Chat new "Ceci-est-un-chat" 8)
+!(Chat new "Ceci-est-un-chat" 8 )
 !ref lechat
 
 !(lechat description)

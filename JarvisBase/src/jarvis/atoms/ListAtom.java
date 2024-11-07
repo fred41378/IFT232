@@ -108,4 +108,9 @@ public class ListAtom extends AbstractAtom{
 		return ""+data;
 	}
 
+	public void addAll(ListAtom allAttributes) {
+		for (int i = 0; i < allAttributes.size(); i++) {
+			data.add(allAttributes.get(i));
+		}
+	}
 }

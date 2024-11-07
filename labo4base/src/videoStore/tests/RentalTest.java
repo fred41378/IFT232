@@ -9,6 +9,8 @@ import org.junit.Test;
 import videoStore.Movie;
 import videoStore.Rental;
 
+import java.time.LocalDate;
+
 public class RentalTest {
 	
 	private final double EPSILON = 0.01;
@@ -65,8 +67,25 @@ public class RentalTest {
 		assertEquals(regular.points(),1);
 		assertEquals(unpopular.points(),3);
 	}
-	
-	
+
+	@Test
+	public void testAmountDifferentDates() {
+
+		unpopularMovie.setPriceCode(Movie.CHILDRENS, LocalDate.of(2002, 7, 28));
+		unpopularMovie.setPriceCode(Movie.NEW_RELEASE, LocalDate.of(2004, 2, 3));
+		unpopularMovie.setPriceCode(Movie.REGULAR, LocalDate.of(2016, 9, 14));
+		unpopularMovie.setPriceCode(Movie.UNPOPULAR_MOVIE, LocalDate.of(2026, 8, 1));
+
+
+		Rental firstRental = new Rental(unpopularMovie, LocalDate.of(2002, 7, 28) ,3);
+		assertEquals(firstRental.amount(), 1.5, EPSILON);
+		Rental secondRental = new Rental(unpopularMovie, LocalDate.of(2004, 2, 3) ,3);
+		assertEquals(secondRental.amount(), 9, EPSILON);
+		Rental thirdRental = new Rental(unpopularMovie, LocalDate.of(2016, 9, 14) ,3);
+		assertEquals(thirdRental.amount(), 3.5, EPSILON);
+		Rental fourthRental = new Rental(unpopularMovie, LocalDate.of(2026, 8, 1) ,3);
+		assertEquals(fourthRental.amount(), 2, EPSILON);
+	}
 
 	
 	@After

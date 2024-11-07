@@ -4,15 +4,19 @@
 #HÉRITAGE: il manque la classe Object.
 # Vous devriez la définir ici.
 
-
+()
+["set" _operatorSetPrimitive]
+"Class"
+!(Class new)
+!ref Object
 
 #MUTATEUR: c'est une fonctionnalité 
 #de base de tous les objets...
 
 #Classe servant à faire des conditions
 ("true" "false")
-
 []
+"Object"
 !(Class new)
 !ref ifelse
 
@@ -20,6 +24,7 @@
 #définition incomplète del a classe int.
 ("value")
 ["+" _integerAddPrimitive "-" _integerSubtractPrimitive "*" _integerMultiplyPrimitive "<" _integerLessPrimitive ">" _integerMorePrimitive "==" _integerEqualsPrimitive]
+"Object"
 !(Class new)
 !ref int
 
@@ -27,13 +32,7 @@
 #définition incomplète de la classe bool.
 ("value")
 ["!" _boolNotPrimitive "&&" _boolAndPrimitive "||" _boolOrPrimitive]
+"Object"
 !(Class new)
 !ref bool
-
-!(int new 1)
-!ref valeur_petite
-!(int new 26)
-!ref valeur_grande
-!(valeur_petite - valeur_grande)
-!ref valeur_negative
 

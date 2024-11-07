@@ -23,6 +23,7 @@ public class ObjectAtom extends AbstractAtom {
 	 */
 	public static final int ATTRIBUTE_FIELD =0;
 	public static final int METHOD_FIELD =1;
+	public static final int PARENT_FIELD =2;
 	
 	/*
 	 * Référence à la classe de cet objet.
@@ -64,53 +65,73 @@ public class ObjectAtom extends AbstractAtom {
 		return message(new StringAtom(selector));
 		
 	}
-	
+
     //HÉRITAGE
 	//VARIABLESCLASSE
 	/*
 	 * Algorithme de gestion des messages.
 	 * Ce bout de code a pour responsabilité de déterminer si le message
-	 * concerne un attribut ou une méthode. 
+	 * concerne un attribut ou une méthode.
 	 * Pour implanter l'héritage, cet algorithme doit nécessairement être modifié.
-	 */	
+	 */
 	public AbstractAtom message(AbstractAtom selector) {
-		
-		
-		//Va chercher les attributs
-		ListAtom members = (ListAtom) classReference.values.get(ATTRIBUTE_FIELD);
 
-		//Vérifie si c'est un attribut 
+		//Va chercher les attributs
+		ListAtom members = classReference.getAllAttributes();
+		//Vérifie si c'est un attribut
 		int pos = members.find(selector);
-		
-		
+
 		if (pos == -1) {
 			// pas un attribut...
 			// Va chercher les méthodes
-			DictionnaryAtom methods = (DictionnaryAtom) classReference.values
-					.get(METHOD_FIELD);
-
-			// Cherche dans le dictionnaire
-			AbstractAtom res = methods.get(selector.makeKey());
-
+			AbstractAtom res = classReference.getMethods(selector);
 			if (res == null) {
-				
+
 				// Rien ne correspond au message
 				return new StringAtom("ComprendPas "+ selector);
 			} else {
 				//C'est une méthode.
 				return res;
 			}
-
 		}
-
 		else {
 			//C'est un attribut.
 			return values.get(pos);
 		}
 	}
 
+	public ListAtom getAllAttributes() {
+		ListAtom liste = new ListAtom();
+		ListAtom members = (ListAtom)values.get(ATTRIBUTE_FIELD);
+		StringAtom parentName = (StringAtom) values.get(PARENT_FIELD);
+		ObjectAtom parent = (ObjectAtom)ji.getEnvironment().get(parentName.getValue());
+		if(parent != null && parentName != new StringAtom("aucun")) {
+			liste.addAll(parent.getAllAttributes());
+		}
+		liste.addAll(members);
+
+		return liste;
+	}
+
+
+
+	public AbstractAtom getMethods(AbstractAtom selector) {
+		DictionnaryAtom methods = (DictionnaryAtom) values.get(METHOD_FIELD);
+		AbstractAtom res = methods.get(selector.makeKey());
+		StringAtom parentName = (StringAtom) values.get(PARENT_FIELD);
+		ObjectAtom parent = (ObjectAtom)ji.getEnvironment().get(parentName.getValue());
+		if(parent != null && parentName != new StringAtom("aucun") && res == null) {
+			res = parent.getMethods(selector);
+		}
+		return res;
+	}
+
 	public void setClass(ObjectAtom theClass) {
 		classReference = theClass;
+	}
+
+	public void setAttribute(AbstractAtom arg1, AbstractAtom arg2) {
+		values.set(classReference.getAllAttributes().find(arg1), arg2);
 	}
 
 	
@@ -121,11 +142,11 @@ public class ObjectAtom extends AbstractAtom {
 		String s="";
 		int i=0;
 		
-		s += "\""+ji.getEnvironment().reverseLookup(classReference)+"\":";
+		s += "\""+ji.getEnvironment().reverseLookup( getJarvisClass())+"\":";
 		
 		for (AbstractAtom atom : values) {
 			
-			s+=" "+((ListAtom)classReference.values.get(0)).get(i).makeKey()+":";
+			s+=" "+( getJarvisClass().getAllAttributes()).get(i).makeKey()+":";
 			if(atom instanceof ClosureAtom)
 			{
 				s+=atom;
@@ -143,7 +164,7 @@ public class ObjectAtom extends AbstractAtom {
 	
 	public String findClassName(JarvisInterpreter ji){
 		
-		return ji.getEnvironment().reverseLookup(classReference);
+		return ji.getEnvironment().reverseLookup( getJarvisClass());
 		
 	}
 

@@ -20,6 +20,7 @@ import jarvis.atoms.ObjectAtom;
 import jarvis.atoms.StringAtom;
 import jarvis.atoms.primitives.OperatorNewPrimitive;
 
+import jarvis.atoms.primitives.OperatorSetPrimitive;
 import jarvis.atoms.primitives.bool.BoolPrimitiveAndDouble;
 import jarvis.atoms.primitives.bool.BoolPrimitiveNotDouble;
 import jarvis.atoms.primitives.bool.BoolPrimitiveOrDouble;
@@ -140,6 +141,7 @@ public class JarvisInterpreter {
 		environment.put("_integerMultiplyPrimitive", new IntegerPrimitiveMultiply());
 		environment.put("_integerEqualsPrimitive", new IntegerPrimitiveEquals());
 		environment.put("_operatorNewPrimitive", new OperatorNewPrimitive());
+		environment.put("_operatorSetPrimitive", new OperatorSetPrimitive());
 
 	}
 
@@ -181,7 +183,7 @@ public class JarvisInterpreter {
 		ListAtom members = new ListAtom();
 		members.add(new StringAtom("attributes"));
 		members.add(new StringAtom("methods"));
-
+		members.add(new StringAtom("super"));
 		HashMap<String, AbstractAtom> m = new HashMap<String, AbstractAtom>();
 		DictionnaryAtom methods = new DictionnaryAtom(m);
 
@@ -193,6 +195,7 @@ public class JarvisInterpreter {
 		 * est instance d'elle-même.
 		 */
 		methods.put("new", new OperatorNewPrimitive());
+		methods.put("set", new OperatorSetPrimitive());
 
 		/*
 		 * Création d'un objet qui sera instance de Class Ses données seront la
@@ -202,6 +205,7 @@ public class JarvisInterpreter {
 
 		data.add(members);
 		data.add(methods);
+		data.add(new StringAtom("aucun"));
 
 		ObjectAtom ClassClass = new ObjectAtom(null, data, this);
 
