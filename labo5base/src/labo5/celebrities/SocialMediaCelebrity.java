@@ -18,8 +18,13 @@ public abstract class SocialMediaCelebrity extends Sujet{
 
 	protected void setStatus(String ns) {
 		waitBeforePost();
-		status = ns;
-		notifyFollowers(new Message(ns, this));
+		Message msg = new Message(ns, this);
+		if (checkVeto(msg)) {
+			status = ns;
+			notifyFollowers(msg);
+		} else {
+			System.out.println(getName() + ": OBJECTIONS !!!");
+		}
 	}
 
 	public String getStatus() {

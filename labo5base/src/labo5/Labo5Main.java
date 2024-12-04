@@ -2,7 +2,6 @@ package labo5;
 
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.io.Serial;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -12,10 +11,7 @@ import labo5.celebrities.BroScienceCelebrity;
 import labo5.celebrities.DramaticCelebrity;
 import labo5.celebrities.PositiveCelebrity;
 import labo5.celebrities.SocialMediaCelebrity;
-import labo5.followers.Follower;
-import labo5.followers.MessageLog;
-import labo5.followers.Reposter;
-import labo5.followers.SerialReposter;
+import labo5.followers.*;
 import labo5.ui.MessageView;
 
 public class Labo5Main extends JFrame {
@@ -24,7 +20,7 @@ public class Labo5Main extends JFrame {
 	private JPanel background;
 	private ArrayList<MessageView> views = new ArrayList<MessageView>();
 
-	private ArrayList<SocialMediaCelebrity> celebs = new ArrayList<SocialMediaCelebrity>();
+	private ArrayList<SocialMediaCelebrity> posters = new ArrayList<SocialMediaCelebrity>();
 	private MessageLog log = new MessageLog();
 
 	/*
@@ -37,25 +33,48 @@ public class Labo5Main extends JFrame {
 		DramaticCelebrity dramaQueen = new DramaticCelebrity("BritneySpears", 2);
 		PositiveCelebrity spiritualKing = new PositiveCelebrity("LookWithin", 3);
 		BroScienceCelebrity superBro = new BroScienceCelebrity("JohnCena", 4);
-		celebs.add(dramaQueen);
-		celebs.add(spiritualKing);
-		celebs.add(superBro);
+		Fanboy fanboy = new Fanboy(this, "Simp_Master", 1);
+		Hater hater = new Hater(this, "NoGainsWithPains", 1);
+		Troll troll1 = new Troll(this, "ElmoTheKingOfIdiots",1);
+		Troll troll2 = new Troll(this, "JJFREAKY",2);
+		posters.add(dramaQueen);
+		posters.add(spiritualKing);
+		posters.add(superBro);
+		posters.add(fanboy);
+		posters.add(hater);
+
+		for (SocialMediaCelebrity poster: posters){
+			poster.attach(troll1);
+			poster.attach(troll2);
+		}
 
 		SerialReposter nolife = new SerialReposter(this, "NoLife");
 
-		dramaQueen.attach(new Reposter(this, "BritneyFan"));
+		dramaQueen.attach(new Reposter(this, "Britney_Fan"));
 		dramaQueen.attach(log);
 		dramaQueen.attach(nolife);
+		dramaQueen.attach(fanboy);
 
-		spiritualKing.attach(new Reposter(this, "SpiritualFan"));
+
+		spiritualKing.attach(new Reposter(this, "Spiritual_Fan"));
 		spiritualKing.attach(log);
 		spiritualKing.attach(nolife);
 
-		superBro.attach(new Reposter(this, "JohnCenaFan"));
+		superBro.attach(new Reposter(this, "JohnCena_Fan"));
 		superBro.attach(log);
 		superBro.attach(nolife);
+		superBro.attach(hater);
 
+		fanboy.attach(new Reposter(this, "Simp_Master_Fan"));
+		fanboy.attach(log);
 
+		hater.attach(new Reposter(this, "NoGainsWithPains_Fan"));
+		hater.attach(log);
+
+		PressAgent agentSmith = new PressAgent("Agent_Smith", Util.TROLL_DICTIONNARY1);
+		dramaQueen.attachVeto(agentSmith);
+		spiritualKing.attachVeto(agentSmith);
+		superBro.attachVeto(agentSmith);
 	}
 	
 	/*
@@ -67,7 +86,7 @@ public class Labo5Main extends JFrame {
 	public void startTheDrama() {
 
 		while (true) {
-			for(SocialMediaCelebrity celeb: celebs){
+			for(SocialMediaCelebrity celeb: posters){
 				celeb.changeStatus();
 			}
 		}
